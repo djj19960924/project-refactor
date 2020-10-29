@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://localhost:3100',
+      target: 'http://api.jfancymall.com',
       changeOrigin: true
     })
   )
