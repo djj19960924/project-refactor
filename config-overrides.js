@@ -2,8 +2,11 @@ const {
   override,
   fixBabelImports,
   addLessLoader,
-  addDecoratorsLegacy
+  addDecoratorsLegacy,
+  addWebpackAlias
 } = require("customize-cra");
+
+const path = require('path')
 
 
 module.exports = override(
@@ -15,5 +18,13 @@ module.exports = override(
     noIeCompat: true,
     localIdentName: '[local]--[hash:base64:5]'
   }),
-  addDecoratorsLegacy()
+  addDecoratorsLegacy(),
+  addWebpackAlias({ //路径别名
+    '@': path.resolve(__dirname, 'src'),
+    '@components': path.resolve(__dirname, 'src/components'),
+    '@pages': path.resolve(__dirname, 'src/pages'),
+    '@util': path.resolve(__dirname, 'src/util'),
+    '@router': path.resolve(__dirname, 'src/routes'),
+    '@store': path.resolve(__dirname, 'src/store')
+  })
 );

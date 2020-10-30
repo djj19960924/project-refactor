@@ -3,13 +3,16 @@ import { Form, Input, Button, Checkbox } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
 import * as authActions from '../../actions/authActions'
+import {Route, Switch, withRouter,Redirect} from 'react-router-dom'
 import './index.less'
+import Test from '@pages/test'
 
 const FormItem = Form.Item;
 
+@withRouter
 @connect(
   state => ({
-    user: state.user
+    auth: state.authReducer
   }),
   {...authActions}
 )
@@ -21,7 +24,6 @@ class Login extends Component {
   }
 
   onFinish = (values) => {
-    console.log('Success:', values);
     const dataObj = {
       password: values.password,
       username: values.username
@@ -33,7 +35,13 @@ class Login extends Component {
     console.log('Failed:', errorInfo);
   }
 
+  UNSAFE_componentWillReceiveProps(nextProps,props) {
+  }
+
   render() {
+    if(this.props.auth.isLogin) {
+      return <Redirect to={this.props.match.path} />
+    }
     return (
       <div name="Login" className="Login" style={{ textAlign: 'center' }}>
         {/*表单容器*/}
@@ -74,6 +82,9 @@ class Login extends Component {
         </Form>
           <p className="info">欢迎登陆后台管理系统</p>
         </div>
+        <Switch>
+          <Route path="/test" component={Test}></Route>
+        </Switch>
       </div>
     );
   }

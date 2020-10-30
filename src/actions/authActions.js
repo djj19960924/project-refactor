@@ -2,9 +2,18 @@ import axios from 'axios'
 import * as actions from "../constants/auth"
 // 引入设置token方法
 import setAuthToken from '../utils/AuthToken'
+import { SaveLoginUserInfo } from '../common/Auth'
 
+/**
+ * 接收用户的同步action
+*/
+export const login_success = (res) => ({type:actions.LOGIN_SUCCESS,res})
+/**
+ * 登录的异步action
+*/
 export const login_user = (userData) => {
   return dispatch => {
+    //1.发登录的异步ajax请求
     let formData = new FormData();
     formData.append('grant_type', 'password');
     formData.append('username', userData.username);
@@ -18,11 +27,14 @@ export const login_user = (userData) => {
     }).then(res => {
       return res.json();
     }).then(res => {
+      //2.请求结束，分发同步action
+      //2.1 如果成功了，分发成功的同步action
       const token = res.access_token;
-      localStorage.setItem('token',token)
+      SaveLoginUserInfo(token)
       //设置axios的headers token
       setAuthToken(token)
-      // dispatch({type:actions.LOGIN,data})
+      dispatch(login_success(res))
+      //2.2 如果失败了，分发失败的同步action
     })
   }
 }

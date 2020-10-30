@@ -1,9 +1,11 @@
 //合并reducer
 import { combineReducers } from "redux"
-import testData from "./testData"
+// import testData from "./testData"
+import authReducer from "./authReducer"
 
 const rootReducer = combineReducers({
-  testData
+  authReducer,
+  // testData
 })
 
 export default rootReducer

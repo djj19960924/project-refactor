@@ -33,7 +33,7 @@ class App extends Component {
           } 
           return <Home {...props}></Home>
         }}/>
-        <Route component={ NotFound } />
+        
       </Switch>
     );
   }

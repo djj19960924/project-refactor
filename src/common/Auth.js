@@ -5,7 +5,7 @@ const APP_LOGIN_USER = 'APP_LOGIN_USER'
 */
 export function AuthLogin() {
   // sessionStorage 存储当前的登录信息
-  let loginUserStr = sessionStorage.getItem(APP_LOGIN_USER)
+  let loginUserStr = localStorage.getItem(APP_LOGIN_USER)
   if(loginUserStr) {
     return true
   }
@@ -18,5 +18,5 @@ export function AuthLogin() {
  * @return undefined
  */
 export function SaveLoginUserInfo(user) {
-  sessionStorage.setItem(APP_LOGIN_USER,JSON.stringify(user))
+  localStorage.setItem(APP_LOGIN_USER,JSON.stringify(user))
 }
