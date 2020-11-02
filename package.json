@@ -40,7 +40,8 @@
       "no-restricted-globals": "off",
       "no-unused-vars": "off",
       "eqeqeq": "off",
-      "jsx-a11y/anchor-is-valid": "off"
+      "jsx-a11y/anchor-is-valid": "off",
+      "jsx-a11y/alt-text": "off"
     }
   },
   "babel": {

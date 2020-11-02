@@ -5,6 +5,7 @@ import store from './store'
 import { Provider } from 'react-redux' 
 // Browser 路由
 import { HashRouter } from 'react-router-dom';
+import "./index.less";
 
 window.ajaxUrl = '//api.jfancymall.com';
 

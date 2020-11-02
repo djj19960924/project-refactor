@@ -7,7 +7,19 @@ class Test extends Component {
   }
   render() { 
     return ( 
-      <div>test</div>
+      <div>test
+      
+      {
+        // <header>头部</header>
+        // <div>
+        //   <Switch>
+        //     <Route path="/home/test" component={Test} />
+        //     <Route path="/home/charts" component={Charts} />
+        //     <Redirect to="/home/test" />
+        //   </Switch>
+        // </div>
+      }
+      </div>
     )
   }
 }

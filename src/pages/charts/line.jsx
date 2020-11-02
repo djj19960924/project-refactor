@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 
-class Home extends Component {
+class Line extends Component {
   constructor(props) {
     super(props);
     this.state = {  }
   }
   render() { 
     return ( 
-      <div>
-        Home
-      </div>
+      <div>Line</div>
     );
   }
 }
  
-export default Home;
+export default Line;

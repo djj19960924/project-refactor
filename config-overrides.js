@@ -23,7 +23,7 @@ module.exports = override(
     '@': path.resolve(__dirname, 'src'),
     '@components': path.resolve(__dirname, 'src/components'),
     '@pages': path.resolve(__dirname, 'src/pages'),
-    '@util': path.resolve(__dirname, 'src/util'),
+    '@utils': path.resolve(__dirname, 'src/utils'),
     '@router': path.resolve(__dirname, 'src/routes'),
     '@store': path.resolve(__dirname, 'src/store')
   })

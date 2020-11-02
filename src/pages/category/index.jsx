@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 
-class Charts extends Component {
+class Category extends Component {
   constructor(props) {
     super(props);
     this.state = {  }
   }
   render() { 
     return ( 
-      <div>charts</div>
+      <div>
+        Category
+      </div>
     );
   }
 }
  
-export default Charts;
+export default Category;

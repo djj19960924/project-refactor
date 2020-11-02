@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
+import './index.less'
 
-class Home extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {  }
   }
   render() { 
     return ( 
-      <div>
-        Home
+      <div className="header">
+        Header
       </div>
     );
   }
 }
  
-export default Home;
+export default Header;

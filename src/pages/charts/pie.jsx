@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 
-class Home extends Component {
+class Pie extends Component {
   constructor(props) {
     super(props);
     this.state = {  }
   }
   render() { 
     return ( 
-      <div>
-        Home
-      </div>
+      <div>Pie</div>
     );
   }
 }
  
-export default Home;
+export default Pie;
