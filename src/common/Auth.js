@@ -17,6 +17,6 @@ export function AuthLogin() {
  * @param {Object} user 
  * @return undefined
  */
-export function SaveLoginUserInfo(user) {
-  localStorage.setItem(APP_LOGIN_USER,JSON.stringify(user))
+export function SaveLoginUserInfo(data) {
+  localStorage.setItem(APP_LOGIN_USER,data)
 }

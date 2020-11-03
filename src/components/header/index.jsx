@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './index.less'
 
 class Header extends Component {
@@ -9,7 +10,13 @@ class Header extends Component {
   render() { 
     return ( 
       <div className="header">
-        Header
+        <div className="header-top">
+          <span>欢迎，Admin</span>
+          <Link to="/home">退出</Link>
+        </div>
+        <div className="header-bottom">
+          <div className="header-bottom-left">首页</div>
+        </div>
       </div>
     );
   }

@@ -24,7 +24,7 @@ axios.interceptors.response.use(
     if (error.response) {
       console.log(error.response.status)
       if(error.response.status == 401){
-        alt.error("登陆失效,请重新登录!");
+        alert.error("登陆失效,请重新登录!");
         localStorage.removeItem('token');
         setTimeout(function () {
           // location.href = '/index.html';

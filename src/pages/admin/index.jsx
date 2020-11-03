@@ -14,6 +14,7 @@ import Bar from '@pages/charts/bar'
 import Line from '@pages/charts/line'
 import Pie from '@pages/charts/pie'
 
+
 const { Footer, Sider, Content } = Layout;
 
 class Admin extends Component {
@@ -29,14 +30,14 @@ class Admin extends Component {
         </Sider>
         <Layout>
           <Header>Header</Header>
-          <Content style={{background: '#FFF'}}>
+          <Content style={{margin: 20,background: '#FFF'}}>
             <Switch>
               <Route path="/home" component={Home} />
               <Route path="/category" component={Category} />
               <Route path="/product" component={Product} />
               <Route path="/role" component={Role} />
               <Route path="/user" component={User} />
-              <Route path="/charts/bar" component={Home} />
+              <Route path="/charts/bar" component={Bar} />
               <Route path="/charts/line" component={Line} />
               <Route path="/charts/pie" component={Pie} />
               <Redirect to="/home" />

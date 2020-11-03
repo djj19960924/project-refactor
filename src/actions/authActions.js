@@ -1,7 +1,4 @@
-import axios from 'axios'
 import * as actions from "../constants/auth"
-// 引入设置token方法
-import setAuthToken from '../utils/AuthToken'
 import { SaveLoginUserInfo } from '../common/Auth'
 
 /**
@@ -29,10 +26,8 @@ export const login_user = (userData) => {
     }).then(res => {
       //2.请求结束，分发同步action
       //2.1 如果成功了，分发成功的同步action
-      const token = res.access_token;
+      const token = "bearer"+res.access_token;
       SaveLoginUserInfo(token)
-      //设置axios的headers token
-      setAuthToken(token)
       dispatch(login_success(res))
       //2.2 如果失败了，分发失败的同步action
     })
