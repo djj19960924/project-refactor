@@ -19,6 +19,17 @@ class LeftNav extends Component {
   }
 
   /**
+   * 判断当前用户是否有此item对应的权限
+   */
+  hasAuth(item) {
+    //得到当前用户的所有权限
+    //1.如果当前用户是admin
+    //2.如果item是公开的
+    //3.当前用户有此item的权限
+    return true
+  }
+
+  /**
    * 
    * @param {*} menuConfig
    * 根据menu的数据数组生成对应的标签数组
@@ -28,6 +39,7 @@ class LeftNav extends Component {
     const path = this.props.location.pathname
     //得到需要打开菜单项的key
     return menuConfig.map(item=>{
+      // 判断当前用户是否有此item对应的权限
       if(!item.children) {
         return (
           <Menu.Item key={item.key} icon={item.icon}>
@@ -75,8 +87,6 @@ class LeftNav extends Component {
           {this.menuNodes}
         </Menu>
       </div>
-      
-
     );
   }
 }

@@ -3,7 +3,7 @@ import { Form, Input, Button, Checkbox } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
 import * as authActions from '../../actions/authActions'
-import {Route, Switch, withRouter,Redirect} from 'react-router-dom'
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
 import './index.less'
 
 const FormItem = Form.Item;
@@ -27,6 +27,7 @@ class Login extends Component {
       password: values.password,
       username: values.username
     }
+    //1.发登录的异步ajax请求
     this.props.login_user(dataObj)
   }
 
@@ -36,7 +37,11 @@ class Login extends Component {
   
   render() {
     if(this.props.auth.isLogin) {
-      return <Redirect to={`${this.props.location.state.from.pathname}`} />
+      if(this.props.location.state) {
+        return <Redirect to={`${this.props.location.state.from.pathname}`} />
+      }else {
+        return <Redirect to='/' />
+      }
     }
     return (
       <div name="Login" className="Login" style={{ textAlign: 'center' }}>

@@ -6,8 +6,10 @@ const initialState = {
 
 const customerReducer = function( state=initialState,action) {
   switch (action.type) {
-    case actions.CUSTOMER_LEVELS_LIST:
-      // return { levels:actions.data }
+    case actions.INIT_CUSTOMERLEVEL_DATA:
+      const newState = JSON.parse(JSON.stringify(state))
+      newState.levels = action.data
+      return newState
     default:
       return state
   }

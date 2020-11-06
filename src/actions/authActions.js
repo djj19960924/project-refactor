@@ -1,6 +1,5 @@
 import * as actions from "../constants/auth"
 import { SaveLoginUserInfo } from '../common/Auth'
-
 /**
  * 接收用户的同步action
 */
@@ -9,7 +8,7 @@ export const login_success = (res) => ({type:actions.LOGIN_SUCCESS,res})
  * 登录的异步action
 */
 export const login_user = (userData) => {
-  return dispatch => {
+  return async dispatch => {
     //1.发登录的异步ajax请求
     let formData = new FormData();
     formData.append('grant_type', 'password');
@@ -26,9 +25,13 @@ export const login_user = (userData) => {
     }).then(res => {
       //2.请求结束，分发同步action
       //2.1 如果成功了，分发成功的同步action
-      const token = "bearer"+res.access_token;
-      SaveLoginUserInfo(token)
-      dispatch(login_success(res))
+      if(res.access_token) {
+        const token = "bearer"+res.access_token;
+        SaveLoginUserInfo(token)
+        dispatch(login_success(res))
+      }else {
+        alert(res.error_description)
+      }
       //2.2 如果失败了，分发失败的同步action
     })
   }
